@@ -1,0 +1,15 @@
+/* style.css: Extra tweaks beyond W3.CSS */
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+#toolsInput:focus {
+  outline: none;
+  border-color: #2196F3; /* blue */
+}
+
+button:hover {
+  opacity: 0.9;
+  transition: 0.2s;
+}
+

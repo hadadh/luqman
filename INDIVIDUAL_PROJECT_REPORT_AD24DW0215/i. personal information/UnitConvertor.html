@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    .converter {
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .converter h2 {
+      margin-bottom: 20px;
+    }
+    .converter label,
+    .converter input,
+    .converter select,
+    .converter button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<script>
+    function convert() {
+      const value = parseFloat(document.getElementById("value").value);
+      const conversionType = document.getElementById("conversion").value;
+      const resultElement = document.getElementById("result");
+
+      if (isNaN(value) || value < 0) {
+        resultElement.textContent = "Please enter a valid non-negative number.";
+        return;
+      }
+
+      let result = 0;
+      let unit = "";
+
+      switch (conversionType) {
+        case "cmToM":
+          result = value / 100;
+          unit = "m";
+          break;
+        case "mToCm":
+          result = value * 100;
+          unit = "cm";
+          break;
+        case "mToKm":
+          result = value / 1000;
+          unit = "km";
+          break;
+        case "kmToM":
+          result = value * 1000;
+          unit = "m";
+          break;
+        default:
+          resultElement.textContent = "Invalid conversion type.";
+          return;
+      }
+
+      resultElement.textContent = `Result: ${result} ${unit}`;
+    }
+  </script>
+<body>
+  <div class="converter">
+    <h2>Unit Converter</h2>
+    <label for="value">Enter value:</label>
+    <input type="number" id="value" placeholder="Enter number">
+
+    <label for="conversion">Select conversion:</label>
+    <select id="conversion">
+      <option value="cmToM">Centimeter → Meter</option>
+      <option value="mToCm">Meter → Centimeter</option>
+      <option value="mToKm">Meter → Kilometer</option>
+      <option value="kmToM">Kilometer → Meter</option>
+    </select>
+
+    <button onclick="convert()">Convert</button>
+
+    <p id="result"></p>
+    <a href="Tool.html">← Back to Tools</a>
+  </div>
+
+  
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tools Page</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    background-image: url(businessman.png);
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    font-family: "Syne", sans-serif;
+    
+   }
+   </style>
+</head>
+<body class="w3-light-grey">
+
+  <div class="w3-card-4 w3-white w3-padding-large w3-round-large w3-margin-auto w3-center w3-animate-opacity" style="max-width: 600px; margin:auto;">
+    <h2 class="w3-text-teal">🛠️ Useful Tools</h2>
+   
+
+    <input type="text" id="toolsInput" class="w3-input w3-border w3-round w3-margin-top" placeholder="(Optional) Type anything...">
+
+    <div class="w3-margin-top">
+      <button class="w3-button w3-blue w3-round-large w3-margin-top w3-block" onclick="navigateTo('basic calculator.html')">🧮 Calculator</button>
+      <button class="w3-button w3-teal w3-round-large w3-margin-top w3-block" onclick="navigateTo('BMI.html')">⚖️ BMI Checker</button>
+      <button class="w3-button w3-green w3-round-large w3-margin-top w3-block" onclick="navigateTo('Income tax calculator.html')">💰 Income Tax Calculator</button>
+      <button class="w3-button w3-indigo w3-round-large w3-margin-top w3-block" onclick="navigateTo('UnitConvertor.html')">📏 Unit Converter</button>
+    </div>
+
+    <p id="infoText" class="w3-margin-top w3-text-grey w3-italic">Select a tool to begin.</p>
+
+    <a href="index.html" class="w3-button w3-light-grey w3-margin-top w3-round-large">← Back to Home</a>
+
+  </div>
+
+  <script>
+    function navigateTo(page) {
+      const input = document.getElementById("toolsInput").value;
+      const infoText = document.getElementById("infoText");
+      if (input.trim() !== "") {
+        infoText.textContent = `You entered: "${input}". Now opening ${page}...`;
+      } else {
+        infoText.textContent = `Opening ${page}...`;
+      }
+      setTimeout(() => {
+        window.location.href = page;
+      }, 1000); // delay for user to read message
+    }
+  </script>
+</body>
+</html>
+
